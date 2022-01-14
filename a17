@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h> //biblioteka wymagana do memcpy
+
+int main() { //stworzenie funkcji glownej, wartosc 0 oznacza wykonanie funkcji main
+
+    FILE *myFile = fopen("numbers.txt", "r"); //wczytanie pliku z tablica liczb, read
+
+    int n = 0;
+    int *x = NULL;   //dany wskaznik nie wskazuje na zaden obiekt w tablicy
+
+    do {
+        x = (int *) realloc(x, (n+1) * (sizeof(int)));  //zalokowanie bloku pamieci, do x przypisanie tablicy
+        n++;
+    } while (fscanf(myFile, "%d", &x[n-1]) != EOF); //wpisuje wszystkie liczby do tablicy
+    n--;
+
+    for (int i = 0; i < n; i++)
+        printf("%d ", x[i]); //wypisuje wszystkie liczby
+
+    int x1[n]; //zadeklarowanie tablic x,y
+    int y1[n];
+    int i = 2;
+
+    memcpy(x1, x, sizeof(int) * n); //kopiuje zawartosc starego bloku pamieci do nowego bloku
+    memcpy(y1, x1, sizeof(int) * n);
+
+    while (i < n) { //petla do momentu niespelnienia warunku
+        y1[i] = x1[i - 1] + x1[i];
+        y1[i] /= 2; //wylicza wartosc y
+        i++;
+    }
+
+    printf("\n"); 
+    for (i = 0; i < n; i++)
+        printf("%d ", y1[i]); //liczba calkowita 
+    return 0; 
+}
