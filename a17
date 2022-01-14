@@ -36,3 +36,4 @@ int main() { //stworzenie funkcji glownej, wartosc 0 oznacza wykonanie funkcji m
         printf("%d ", y1[i]); //liczba calkowita 
     return 0; 
 }
+k
