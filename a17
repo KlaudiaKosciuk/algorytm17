@@ -22,7 +22,7 @@ int main() { //stworzenie funkcji glownej, wartosc 0 oznacza wykonanie funkcji m
     int y1[n];
     int i = 2;
 
-    memcpy(x1, x, sizeof(int) * n); //kopiuje zawartosc starego bloku pamieci do nowego bloku
+    memcpy(x1, x, sizeof(int) * n); //kopiowanie zawartosci starego bloku pamieci do nowego bloku
     memcpy(y1, x1, sizeof(int) * n);
 
     while (i < n) { //petla do momentu niespelnienia warunku
@@ -31,15 +31,15 @@ int main() { //stworzenie funkcji glownej, wartosc 0 oznacza wykonanie funkcji m
         i++;
     }
 
-    printf("\n"); 
+    printf("\n"); //wypisanie tresci w nowej linijce
     for (i = 0; i < n; i++)
         printf("%d ", y1[i]); //liczba calkowita 
         fclose(myFile);
         
         FILE *fp;
-fp = fopen ("wyniki.txt", "w");
+fp = fopen ("wyniki.txt", "w"); //otwarcie pliku z ciagiem i nadpisanie nowych wartosci
 for (i=0; i<n; i++)
 fprintf(fp, "%d " , y1[i]);
-fclose(fp);
+fclose(fp); //zamkniecie pliku 
     return 0; 
 }
