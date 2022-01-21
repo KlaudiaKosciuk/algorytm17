@@ -34,5 +34,12 @@ int main() { //stworzenie funkcji glownej, wartosc 0 oznacza wykonanie funkcji m
     printf("\n"); 
     for (i = 0; i < n; i++)
         printf("%d ", y1[i]); //liczba calkowita 
+        fclose(myFile);
+        
+        FILE *fp;
+fp = fopen ("wyniki.txt", "w");
+for (i=0; i<n; i++)
+fprintf(fp, "%d " , y1[i]);
+fclose(fp);
     return 0; 
 }
